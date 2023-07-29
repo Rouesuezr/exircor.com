@@ -43,6 +43,7 @@
   }
 
   .hello {
+    
     animation-name:fadeIn;
     animation-duration: 2s;
     animation-delay: 1.5s;
@@ -51,53 +52,52 @@
 
     @keyframes spin {
       to{
-        width: 50%;
         transform: rotate(360deg);
       }
     }
 
-    .loadcrikor {
-    animation-name:spin;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
+    @keyframes inv {
+      to{
+        opacity:0
+      }
     }
-    
-  .loadcik{
-    text-align: center;
-    background-color: darksalmon;
-    width: 50%;
-    height: 50px; 
-    position: absolute;
-    top: 50%; 
-    left: 25%;
-    font-size:20px;
-  }
 
-  .loadcik::before{ /* i fucking hate this*/
-    content: "loading...";
-    background-color: black;
-  }
+    .loadcrikor {
+      animation-iteration-count: infinite;
+      animation-name:spin;
+      animation-duration: .5s;
+      animation-fill-mode: forwards;
+    }
+
+    .invv {
+      animation-iteration-count:1;
+      animation-name:inv;
+      animation-duration: .5s;
+      animation-delay: 0 ;
+      animation-fill-mode: forwards;
+    }
+
   </style>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById("loadcik").classList.add("loadcrikor")
+      document.getElementById("img").classList.add("loadcrikor")
 
 
-      document.getElementById("loadcik").addEventListener("animationend",() => {
-  
+      document.getElementById("img").addEventListener("animationend",() => {
+
       })
 
       var e3Dimg = document.getElementById("exircor3DImage")
       e3Dimg.onload = function(){
         document.getElementById("hi").classList.add("hello") /*second load*/
-        document.getElementById("loadcik").remove()
+        document.getElementById("img").classList.add("invv")
+        setTimeout(function(){document.getElementById("img").remove()},1500)
+        
     }
     });
   </script>
-  <div class = "loadcik" id="loadcik">
-    loading...
-  </div>
+  <div id="img" style="top: 50%; left: 45%; position: absolute;align-items: center;background:linear-gradient(rgb(46, 0, 83) 20%, rgb(112, 54, 0) 80%);border-radius: 25px;width: 100px;height: 100px;"></div>
   <div class = "hi" id="hi">
     <image id= "exircor3DImage"src = "https://github.com/Rouesuezr/exircor.com/blob/main/exircor3Dicon.png?raw=true" style="height: 100%;width: 100%;background-repeat: no-repeat;">
       <h1>Exircor</h1>

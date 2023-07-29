@@ -10,7 +10,7 @@
     body{
       background-color: rgb(0, 0, 0);
     }
-    h1{
+    #s{
       position: absolute;
       text-align: center;
       top: 40%; 
@@ -22,6 +22,12 @@
       font-family: 'YourCustomFont', Arial, sans-serif;
     }
     h6{
+      color: brown;
+      font-size:20px;
+      font-family: 'YourCustomFont', Arial, sans-serif;
+    }
+    #s::after{
+      content: "cor";
       color: brown;
     }
     div{
@@ -48,6 +54,11 @@
     animation-duration: 2s;
     animation-delay: 1.5s;
     animation-fill-mode: forwards;
+  }
+  h1{
+    color: rgb(255, 255, 255);
+    font-size:100px;
+    font-family: 'YourCustomFont', Arial, sans-serif;
   }
 
     @keyframes spin {
@@ -76,6 +87,24 @@
       animation-delay: 0 ;
       animation-fill-mode: forwards;
     }
+    hr{
+      border: 2px dashed rgb(92, 0, 0);
+      border-radius: 10px;
+    }
+    h2{
+      color: rgb(143, 0, 0);
+      font-size:80px;
+      font-family: 'YourCustomFont', Arial, sans-serif;
+    }
+
+    #loaghaserror{
+      opacity: 0;
+    }
+
+    #who_are_we::after
+      {content: "?"; color: brown;}
+    #what_do_we_do::after
+    {content: "?"; color: brown;}
 
   </style>
 
@@ -92,17 +121,43 @@
       e3Dimg.onload = function(){
         document.getElementById("hi").classList.add("hello") /*second load*/
         document.getElementById("img").classList.add("invv")
+        document.getElementById("img").style.opacity = 1
         setTimeout(function(){document.getElementById("img").remove()},1500)
-        
     }
+      e3Dimg.onerror = function(){
+        document.getElementById("img").style.opacity = 1
+      }
     });
   </script>
-  <div id="img" style="top: 50%; left: 45%; position: absolute;align-items: center;background:linear-gradient(rgb(46, 0, 83) 20%, rgb(112, 54, 0) 80%);border-radius: 25px;width: 100px;height: 100px;"></div>
+  <div id="img" style="top: 50%; left: 45%; position: absolute;align-items: center;background:linear-gradient( rgb(58, 0, 0) 5%,rgb(165, 42, 42) 70%);border-radius: 50px;width: 100px;height: 100px;"></div>
   <div class = "hi" id="hi">
-    <image id= "exircor3DImage"src = "https://github.com/Rouesuezr/exircor.com/blob/main/exircor3Dicon.png?raw=true" style="height: 100%;width: 100%;background-repeat: no-repeat;">
-      <h1>Exircor</h1>
+    <image id= "exircor3DImage"src = "https://github.com/Rouesuezr/exircor.com/blob/main/PIC.png?raw=true" style="height: 100%;width: 100%;background-repeat: no-repeat;">
+      <h1 id="s">Exir</h1>
     </image>
+    <hr>
+
+    <h1 id="who_are_we">WHO ARE WE
+      <h6>Wa are an independent studio</h6>
+    </h1>
+  
+
+    <h1 id="what_do_we_do">WHAT DO WE DO
+      <h6>Simple online service <a style="color: rgb(58, 0, 0);" href="https://parts.exircor.com">See more...</a></h6>
+    </h1>
+    <hr>
+    <h2 id="Projects">Projects
+      <h6>
+        <a style="color: rgb(58, 0, 0);" href="https://parts.exircor.com">Exircor Parts</a>
+      </h6>
+      <h6> <a style="color: rgb(58, 0, 0);" href="https://papost.exircor.com">PaPost</a></h6>
+      <h6><a style="color: rgb(58, 0, 0);" href="https://patrade.exircor.com">PaTrade</a></h6>
+   
+    </h2>
+    <i style="color: grey;" id="the_founder">Rouesuezr|Rio Raylen</i>
+    
   </div>
+  <i id= "loaghaserror"style="text-align: center;color: aliceblue;">Please cheak your Internet</i>
+  
   
 </body>
 </html>
